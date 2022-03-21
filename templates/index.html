@@ -16,11 +16,25 @@
 
 <body>
     <div class="container" style="padding-top: 4%">
-        <h2>SEARCH PAPERS</h2>
-        <form method="POST" action="/papers">            
-            <input type="text" id="query" name="query" placeholder="Search">
-            <input type="submit">
-        </form>
+        <h2 class="text-center">SEARCH PAPERS</h2>
+        <div class="container-fluid" style="padding-top: 5%">
+            <form method="POST" action="/papers">
+                <div class="row justify-content-center">
+                    <div class="col-md-auto">
+                        <input type="text" id="query" name="query" placeholder="Search">
+                    </div>
+                    <div class="col-md-auto">
+                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </div>
+                </div>
+            
+            
+                </div>
+            
+            </form>
+
+        </div>
+        
 
     </div>
     

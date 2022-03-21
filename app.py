@@ -3,6 +3,11 @@ from flask import render_template, request, jsonify, send_file, make_response
 import requests as reqs
 from gtts import gTTS
 from search import search
+from get_paper import get_paper
+import arxiv
+import pdfminer
+from pdfminer.high_level import extract_text, extract_pages
+from pdfminer.layout import LTTextContainer
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -25,18 +30,25 @@ def get_papers():
 
 @app.route("/paperselect", methods=['GET', 'POST'])
 def get_details():
+    global pname, pgs
     pname = request.form['papername']
+    paper = get_paper(pname)
+    tpages = len(list(extract_pages(paper.title+'.pdf')))
+    print("total pages=", tpages)
     lmt = 10
-    pgs = [i+1 for i in range(lmt)]
-    return render_template("third.html", pname=pname, pgs=pgs)
+    pgs = [i+1 for i in range(tpages)]
+    return render_template("third.html", pname=pname, pgs=pgs, n1=1, n2=tpages, status=0)
 
 
 @app.route("/audio", methods=['GET', 'POST'])
 def download_audio():
-    start = request.form['start']
-    end = request.form['end']
+    start = int(request.form['start'])
+    end = int(request.form['end'])
+    print(pname)
+    print(pgs)
     print(start)
     print(end)
+    return render_template("third.html", pname=pname, pgs=pgs, n1=start, n2=end, status=1)
 
 
 if __name__ == '__main__':

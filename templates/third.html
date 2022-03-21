@@ -3,24 +3,56 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paper details</title>
+    <!-- Bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
 </head>
 <body>
-    <h2>{{pname}}</h2>
-    <form method="POST" action="/audio">
-        <select name="start" method="GET">
-            {% for pg in pgs %}
-            <option value="{{pg}}">{{pg}}</option>"
-            {% endfor %}
-        </select>
-        <select name="end" method="GET">
-            {% for pg in pgs %}
-            <option value="{{pg}}">{{pg}}</option>"
-            {% endfor %}
-        </select>
-        <button type="submit" value="submit">Convert to audio</button>
-
-
-    </form>
+    <div class="container" style="padding-top: 4%">
+        <h2 class="text-left" style="padding-left: 1%">{{pname}}</h2>
+        <div class="container-fluid" style="padding-top: 2%">
+            <form method="POST" action="/audio">
+                <div class="row justify-content-left">
+                    <div class="col-md-auto">
+                        <select name="start" method="GET" class="form-select">
+                            {% for pg in pgs %}
+                            {% if pg == n1 %}
+                            <option value="{{pg}}" selected="selected">{{pg}}</option>
+                            {% else %}
+                            <option value="{{pg}}">{{pg}}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-auto">
+                        <select name="end" method="GET" class="form-select">
+                            {% for pg in pgs %}
+                            {% if pg == n2 %}
+                            <option value="{{pg}}" selected="selected">{{pg}}</option>
+                            {% else %}
+                            <option value="{{pg}}">{{pg}}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>                    
+                    </div>
+                    <div class="col-md-auto">
+                        <button type="submit" class="btn btn-primary mb-2">Convert to audio</button>                    
+                    </div>
+                </div>            
+            </form>
+        </div>
+        
+        {% if status==1 %}
+        <p style="color:rgb(21, 158, 55); padding-left: 2%;"> Audio downloaded ✓</p>
+        {% endif%}
+    </div>
+    
     
 </body>
 </html>
