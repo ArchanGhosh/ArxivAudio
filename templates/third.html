@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper details</title>
+</head>
+<body>
+    <h2>{{pname}}</h2>
+    <form method="POST" action="/audio">
+        <select name="start" method="GET">
+            {% for pg in pgs %}
+            <option value="{{pg}}">{{pg}}</option>"
+            {% endfor %}
+        </select>
+        <select name="end" method="GET">
+            {% for pg in pgs %}
+            <option value="{{pg}}">{{pg}}</option>"
+            {% endfor %}
+        </select>
+        <button type="submit" value="submit">Convert to audio</button>
+
+
+    </form>
+    
+</body>
+</html>

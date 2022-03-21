@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Papers List</title>
+</head>
+<body>
+    <h2>Papers for {{qry}}</h2>
+    <form method="POST" action="/paperselect">
+        <select name="papername" method="GET">
+            {% for item in paperlst %}
+            <option value="{{item}}">{{item}}</option>"
+            {% endfor %}
+        </select>
+        <button type="submit" value="submit">Submit</button>
+    </form>
+</body>
+</html>
