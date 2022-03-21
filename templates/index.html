@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>PDF-TO-AUDIO</title>
+</head>
+
+<body>
+    <form method="POST" action="/papers">
+        <label for="query">Search Paper</label>
+        <input type="text" id="query" name="query">
+        <input type="submit">
+    </form>
+    {% if flag== 1 %}
+    <h2>Papers under {{qry}}</h2>
+    {% for item in lst %}
+    <h3>{{item}}</h3>
+    {% endfor %}
+    {% endif %}
+</body>
+
+</html>
