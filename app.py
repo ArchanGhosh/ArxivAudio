@@ -2,6 +2,7 @@ import flask
 from flask import render_template, request, jsonify, send_file, make_response
 import requests as reqs
 from gtts import gTTS
+from search import search
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -16,9 +17,10 @@ def get_index():
 def get_papers():
     query = request.form['query']
     print(query)
+    lst = search(query)
     temp = ["paper1", "paper2", "paper3"]
 
-    return render_template("second.html", qry=query, paperlst=temp)
+    return render_template("second.html", qry=query, paperlst=lst)
 
 
 @app.route("/paperselect", methods=['GET', 'POST'])
