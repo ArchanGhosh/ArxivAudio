@@ -13,19 +13,28 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}" />
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/c2d169ee97.js" crossorigin="anonymous"></script>
+    <!--google fonts-->>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=PT+Serif:wght@700&family=Ramaraja&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div class="container" style="padding-top: 4%">
-        <h2 class="text-center">SEARCH PAPERS</h2>
-        <div class="container-fluid" style="padding-top: 5%">
+    <div class="container" style="padding-top: 10%">
+        <h2 class="text-center">SEARCH &nbsp;PAPERS</h2>
+        <div class="container-fluid" style="padding-top: 3%; padding-left: 5%">
             <form method="POST" action="/papers">
                 <div class="row justify-content-center">
                     <div class="col-md-5">
                         <input type="text" class="form-control form-control-lg" id="query" name="query" placeholder="Search">
                     </div>
                     <div class="col-md-auto">
-                        <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                        <button type="submit">                            
+                            <i class="fa fa-search" style="font-size:36px"></i>
+                        </button>
                     </div>
                 </div>
             

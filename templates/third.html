@@ -16,6 +16,8 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}" />
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/c2d169ee97.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container" style="padding-top: 4%">
@@ -46,18 +48,35 @@
                         </select>                    
                     </div>
                     <div class="col-md-auto">
-                        <button type="submit" class="btn btn-success mb-2">Convert to audio</button>                    
+                        <button type="submit" class="btn btn-warning mb-2">
+                            <i class='fas fa-headphones'></i>&nbsp;Convert to audio
+                        </button>                    
                     </div>
                 </div>            
             </form>
         </div>
         
         {% if status==1 %}
-        <p style="color:rgb(21, 158, 55); padding-left: 2%;"> {{msg}}</p>
+     <div style="padding-top: 1%; padding-left: 1%;">
+        <form method="POST" action="/download">
+            <button onclick="myfunc()" id="dwn" type="submit" class="btn btn-outline-success">Download&nbsp;<i
+                    class="fa fa-download"></i>
+            </button>
+        </form>
+        <p id="message" style="color:rgb(21, 158, 55); padding-top: 1%;"></p>
         {% elif status==2 %}
         <p style="color:rgb(248, 4, 4); padding-left: 2%;"> {{msg}}</p>
         {% endif %}
     </div>
+        
+    </div>
+    <script>
+        function myfunc() {
+            document.getElementById("message").innerHTML = "Audio downloaded successfully!";
+        }
+
+    </script>
+    
     
     
 </body>

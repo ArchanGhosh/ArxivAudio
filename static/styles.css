@@ -1,8 +1,13 @@
 body {
-  background-color: #e6f2f7;
-  opacity: 0.8;
-  background-image: radial-gradient(#027630 0.8px, transparent 0.8px),
-    radial-gradient(#027630 0.8px, #e6f2f7 0.8px);
-  background-size: 32px 32px;
-  background-position: 0 0, 16px 16px;
+  background: rgb(228, 237, 238);
+}
+button {
+  border: 0;
+  background: none;
+}
+h2 {
+  font-family: "Oswald", sans-serif;
+  font-family: "PT Serif", serif;
+  font-family: "Ramaraja", serif;
+  font-size: 300%;
 }
