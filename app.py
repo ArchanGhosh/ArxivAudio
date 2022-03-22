@@ -24,8 +24,12 @@ def get_papers():
     print(query)
     lst = search(query)
     # temp = ["paper1", "paper2", "paper3"]
+    if len(lst) != 0:
+        qry = "Papers for " + query
+    else:
+        qry = "No paper found for " + query
 
-    return render_template("second.html", qry=query, paperlst=lst)
+    return render_template("second.html", qry=qry, paperlst=lst)
 
 
 @app.route("/paperselect", methods=['GET', 'POST'])
