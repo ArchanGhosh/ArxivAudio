@@ -23,7 +23,7 @@ def get_papers():
     query = request.form['query']
     print(query)
     lst = search(query)
-    temp = ["paper1", "paper2", "paper3"]
+    # temp = ["paper1", "paper2", "paper3"]
 
     return render_template("second.html", qry=query, paperlst=lst)
 
@@ -44,11 +44,17 @@ def get_details():
 def download_audio():
     start = int(request.form['start'])
     end = int(request.form['end'])
-    print(pname)
-    print(pgs)
+    # print(pname)
+    # print(pgs)
     print(start)
     print(end)
-    return render_template("third.html", pname=pname, pgs=pgs, n1=start, n2=end, status=1)
+    if start <= end:
+        msg = "Audio downloaded ✓"
+        flag = 1
+    else:
+        msg = "Enter valid start and end page."
+        flag = 2
+    return render_template("third.html", pname=pname, pgs=pgs, n1=start, n2=end, msg=msg, status=flag)
 
 
 if __name__ == '__main__':

@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}" />
 </head>
 
 <body>
@@ -20,11 +21,11 @@
         <div class="container-fluid" style="padding-top: 5%">
             <form method="POST" action="/papers">
                 <div class="row justify-content-center">
-                    <div class="col-md-auto">
-                        <input type="text" id="query" name="query" placeholder="Search">
+                    <div class="col-md-5">
+                        <input type="text" class="form-control form-control-lg" id="query" name="query" placeholder="Search">
                     </div>
                     <div class="col-md-auto">
-                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                        <button type="submit" class="btn btn-success btn-lg">Submit</button>
                     </div>
                 </div>
             
@@ -37,6 +38,11 @@
         
 
     </div>
+    <!-- <footer class="page-footer font-small fixed-bottom">
+        <div class="text-center">    
+            <p>Made by Archan Ghosh</p>  
+        </div>    
+    </footer> -->
     
 </body>
 
