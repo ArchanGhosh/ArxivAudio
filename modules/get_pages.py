@@ -6,7 +6,7 @@ from modules.preprocess import pre_process
 def get_pages(filename, start_page=0, end_page=0):
     page_number = []
     for i in range(start_page, end_page+1):
-        page_number.append(i)
+        page_number.append(i-1)
     print(page_number)
     #filename = str(paper.title)+'.pdf'
     pages = extract_pages(filename, page_numbers=page_number)

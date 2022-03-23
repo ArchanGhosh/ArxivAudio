@@ -67,7 +67,7 @@ def download_audio():
     print(end)
     if start <= end:
         content = get_pages(name, start, end)
-        # print(content[:500])
+        print(content[:500])
         # delete previous audio here
         audio_loc = text_to_speech(name, content)
         # content = "xyz"
