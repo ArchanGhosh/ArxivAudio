@@ -48,7 +48,7 @@ def get_details():
 
     name = paper.title+'.pdf'
     name = name.replace('?', '')
-    name = "./downloads/" + name
+    name = "downloads/" + name
 
     tpages = len(list(extract_pages(name)))
     print("total pages=", tpages)
