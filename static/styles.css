@@ -5,9 +5,19 @@ button {
   border: 0;
   background: none;
 }
+#head1 {
+  font-family: "Gothic A1", sans-serif;
+  font-size: 400%;
+}
 h2 {
-  font-family: "Oswald", sans-serif;
-  font-family: "PT Serif", serif;
-  font-family: "Ramaraja", serif;
-  font-size: 300%;
+  font-family: "Gothic A1", sans-serif;
+  font-size: 250%;
+}
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+#con {
+  font-family: "Gothic A1", sans-serif;
+  font-size: 125%;
 }
