@@ -16,4 +16,5 @@ We are always looking for active collaborators who can help us with web developm
 ## Collaborators
 
 [Archan Ghosh](https://github.com/ArchanGhosh)
+
 [Madhurima Maji](https://github.com/madhurima99)
