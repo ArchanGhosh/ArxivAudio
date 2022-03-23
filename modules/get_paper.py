@@ -9,7 +9,7 @@ def get_paper(paper=""):
     print("paper title= ", paper.title)
     name = str(paper.title) + '.pdf'
     name = name.replace('?', '')
-    name = "./downloads/" + name
+    name = "downloads/" + name
     paper.download_pdf(filename=name)
 
     return(paper)
