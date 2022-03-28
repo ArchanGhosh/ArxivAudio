@@ -25,14 +25,17 @@ def get_index():
 def get_papers():
     query = request.form['query']
     print(query)
-    lst = search(query)
+    sort_by = str(request.form['sort_by'])
+    order_by = str(request.form['order_by'])
+    print(sort_by, order_by)
+    lst = search(query=query, sort_by=sort_by, sort_order=order_by)
     # temp = ["paper1", "paper2", "paper3"]
     if len(lst) != 0:
         qry = "Papers for " + query
     else:
         qry = "No paper found for " + query
 
-    return render_template("second.html", qry=qry, paperlst=lst)
+    return render_template("paperslist.html", qry=qry, paperlst=lst)
 
 
 @app.route("/paperselect", methods=['GET', 'POST'])
@@ -40,7 +43,6 @@ def get_details():
     global pname, name, pgs
     pname = request.form['papername']
     print(pname)
-
     # delete previous paper here
 
     paper = get_paper(pname)
@@ -54,7 +56,7 @@ def get_details():
     print("total pages=", tpages)
     pgs = [i+1 for i in range(tpages)]
 
-    return render_template("third.html", pname=pname, pgs=pgs, n1=1, n2=tpages, status=0)
+    return render_template("paperdetails.html", pname=pname, pgs=pgs, n1=1, n2=tpages, status=0)
 
 
 @app.route("/audio", methods=['GET', 'POST'])
@@ -73,11 +75,11 @@ def download_audio():
         # content = "xyz"
         msg = "Audio downloaded ✓"
         flag = 1
-        return render_template("third.html", pname=pname, pgs=pgs, n1=start, n2=end, msg=msg, status=flag)
+        return render_template("paperdetails.html", pname=pname, pgs=pgs, n1=start, n2=end, msg=msg, status=flag)
     else:
         msg = "Enter valid start and end page."
         flag = 2
-        return render_template("third.html", pname=pname, pgs=pgs, n1=start, n2=end, msg=msg, status=flag)
+        return render_template("paperdetails.html", pname=pname, pgs=pgs, n1=start, n2=end, msg=msg, status=flag)
 
 
 @app.route("/download", methods=['GET', 'POST'])

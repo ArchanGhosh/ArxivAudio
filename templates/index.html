@@ -34,11 +34,24 @@
 <body>
     <div class="container" style="padding-top: 7%">
         <h2 id="head1" class="text-center">Arxiv Audio</h2>
-        <div class="container-fluid" style="padding-top: 7%; padding-left: 5%">
+        <div class="container-fluid" style="padding-top: 7%;">
             <form method="POST" action="/papers">
                 <div class="row justify-content-center">
-                    <div class="col-md-5">
-                        <input type="text" class="form-control form-control-lg" id="query" name="query" placeholder="Search paper">
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="query" name="query" placeholder="Search term">
+                    </div>
+                    <div class="col-md-auto">
+                        <select name="sort_by" method="GET" class="form-select form-control">
+                            <option value="Relevance">Relevance</option>
+                            <option value="Last Updated Date">Last Updated Date</option>
+                            <option value="Submitted Date">Submitted Date</option>
+                        </select>
+                    </div>
+                    <div class="col-md-auto">
+                        <select name="order_by" method="GET" class="form-select form-control">
+                            <option value="Ascending">Ascending</option>"
+                            <option value="Descending">Descending</option>
+                        </select>
                     </div>
                     <div class="col-md-auto">
                         <button type="submit">                            
@@ -53,16 +66,14 @@
             <div class="container-fluid text-center" style="padding-top: 3%">
                 <i class="fa fa-file-pdf-o" style="font-size:40px"></i>
                 <i class='fas fa-long-arrow-alt-right' style='font-size:40px'></i>
-                <i class="fa fa-file-audio-o" style="font-size:40px"></i>
+                <i class="fa fa-file-audio-o" style="font-size:35px"></i>
             </div>
             <div class="row justify-content-center" style="padding-top: 2%">
                         <div class=" col-md-auto">
-                <p id="con">Convert arxiv papers to audio book</p>
+                <p id="con">Convert arxiv papers to audio books</p>
             </div>
-            </div>
-            
-        </div>
-        
+            </div>            
+        </div>      
 
     </div>
     <footer class="page-footer fixed-bottom">

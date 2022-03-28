@@ -24,7 +24,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200;300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container" style="padding-top: 4%">
+    <div style="padding-top: 0.5%; padding-right: 2%; padding-left: 2%;">
+        <div class="d-flex bd-highlight">
+            <div class="p-2 w-100 bd-highlight" style="padding-left: 0% !important;">
+                <button onclick="history.back()">
+                    <i class="fa fa-arrow-circle-left fa-1x" style="font-size:28px">
+                    </i>
+                </button>
+            </div>
+            <div class="p-2 flex-shrink-1 bd-highlight" style="padding-right: 0% !important;">
+                <a href="/" style="color: black;">
+                    <i class="fa fa-home fa-1x" style="font-size:28px"></i>
+                    </i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding-top: 1%">
         <h2 class="text-left" style="padding-left: 1%">{{pname}}</h2>
         <div class="container-fluid" style="padding-top: 2%">
             <form method="POST" action="/audio">
@@ -74,6 +90,22 @@
         <p style="color:rgb(248, 4, 4); padding-left: 2%;"> {{msg}}</p>
         {% endif %}
     </div>
+    <footer class="page-footer fixed-bottom">
+        <div style="padding-left: 1%;">
+            <div class="row justify-content-sm-center">
+                <div class="col-md-auto nopadding">
+                    <p>Support us at</p>
+                </div>
+                <div class="col-md-auto">
+                    <a href="https://github.com/ArchanGhosh/ArxivAudio" target="_blank">
+                        <i class="fa fa-github" style="font-size:25px;color:black;"></i>
+                    </a>
+                </div>
+            </div>
+    
+    
+        </div>
+    </footer>
         
     </div>
     <script>
