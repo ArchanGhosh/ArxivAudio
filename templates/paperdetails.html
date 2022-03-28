@@ -41,10 +41,41 @@
         </div>
     </div>
     <div class="container" style="padding-top: 1%">
-        <h2 class="text-left" style="padding-left: 1%">{{pname}}</h2>
-        <div class="container-fluid" style="padding-top: 2%">
+        <!-- <h2 class="text-left" style="padding-left: 1%">{{pname}}</h2> -->
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <table class="table table-bordered table-hover table-success" style="width:70%;">
+                    <tbody>
+                        <tr>
+                            <td class="col-md-2">Title</td>
+                            <td>{{pname}}</td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-2">Authors</td>
+                            <td>XYZ</td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-2">Abstract</td>
+                            <td style="display: block;height: 250px;overflow-y: scroll;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore earum sequi doloribus beatae autem
+                                porro cumque possimus asperiores! Fuga beatae assumenda mollitia inventore obcaecati optio commodi esse
+                                nam, quae iusto!L
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam repellendus dolore ipsum fugit,
+                                incidunt aliquid amet molestias numquam hic doloremque ullam quos ducimus at ad accusantium facilis ex
+                                vitae mollitia.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur incidunt placeat corporis vel
+                                molestias, reiciendis nam voluptatum harum unde vero dolore consequatur, optio nisi in explicabo. Sint
+                                tenetur facere temporibus? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, vitae! Voluptate, et? Tenetur, fuga mollitia? Facilis ea temporibus porro, doloremque sit reiciendis a eligendi exercitationem harum iure mollitia rerum inventore?Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora at natus sint magnam illo nulla! Laboriosam amet natus non, quas quos delectus fugit laborum quibusdam similique blanditiis porro ratione perferendis?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut, officiis doloremque cum provident maxime ab, tempora, suscipit dolor velit ut a asperiores nihil. Vitae, debitis qui minima sunt incidunt fugiat.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+
+         <div class="container-fluid" style="padding-top: 2%">
             <form method="POST" action="/audio">
-                <div class="row justify-content-left">
+                <div class="row justify-content-center">
                     <div class="col-md-auto">
                         <select name="start" method="GET" class="form-select">
                             {% for pg in pgs %}
@@ -72,24 +103,28 @@
                             <i class='fas fa-headphones'></i>&nbsp;Convert to audio
                         </button>                    
                     </div>
+                    <p id="txt" style="color:rgb(100, 101, 102); padding-top: 1%; text-align: center;"></p>
                 </div>     
-                <p id="txt" style="color:rgb(100, 101, 102); padding-top: 1%;"></p>
-            </form>
-            
-        </div>
+                
+            </form>           
         
-        {% if status==1 %}
-     <div style="padding-top: 1%; padding-left: 1%;">
-        <form method="POST" action="/download">
-            <button onclick="myfunc()" id="dwn" type="submit" class="btn btn-outline-success">Download&nbsp;<i
-                    class="fa fa-download"></i>
-            </button>
-        </form>
-        <p id="message" style="color:rgb(21, 158, 55); padding-top: 1%;"></p>
+        {% if status==1 %}        
+                <form method="POST" action="/download">
+                    <div class="row justify-content-center">
+                        <div class="col-md-auto">
+                            <button onclick="myfunc()" id="dwn" type="submit" class="btn btn-outline-success">Download&nbsp;<i
+                                    class="fa fa-download"></i>
+                            </button>
+                        </div>                        
+                    </div>
+                </form>  
+                <p id="message" style="color:rgb(21, 158, 55); padding-top: 1%; text-align: center;"></p>
         {% elif status==2 %}
-        <p style="color:rgb(248, 4, 4); padding-left: 2%;"> {{msg}}</p>
+                <p id="warn" style="color:rgb(248, 4, 4); text-align: center;">{{msg}}</p>
         {% endif %}
-    </div>
+    </div>       
+        
+        
     <footer class="page-footer fixed-bottom">
         <div style="padding-left: 1%;">
             <div class="row justify-content-sm-center">
@@ -108,14 +143,17 @@
     </footer>
         
     </div>
+
     <script>
         function myfunc() {
             document.getElementById("message").innerHTML = "Audio downloaded successfully!";
         }
         function convert() {
                 document.getElementById("txt").innerHTML = "Converting to audio.....";
+                document.getElementById("warn").innerHTML = "";
                 document.getElementById("dwn").hidden = true;
                 document.getElementById("message").innerHTML = "";
+
             }
 
     </script>
