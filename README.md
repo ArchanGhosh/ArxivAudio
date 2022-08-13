@@ -20,7 +20,7 @@ With that you will be able to use the simple interface on your local machine and
 
 ## Update
 
-We are planning to shift this to a more independent TTs environment preferably hugging face if possible.
+Its currently live at [Arxiv Audio](https://huggingface.co/spaces/Archan/ArXivAudio) using espnet and tacotron instead of gTTs.
 
 ### Contribution
 
